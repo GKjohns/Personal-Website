@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kyle Johnson</title>
+    <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400" rel="stylesheet">    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <style media="screen">
+      body {
+        font-family: 'Frank Ruhl Libre', sans-serif;
+      }
+      #main {
+        font-size: 20px;
+        margin: 5% 10%;
+      }
+      div#main_paragraph {
+        margin: 3% 0 0 0;
+        text-shadow: 1px 1px 2px #EEE;
+      }
+      a {
+        color: #596386;
+      }
+      img#photo_img {
+        height: 200px;
+        width: auto;
+        border-radius: 100px;
+        box-shadow: 0px 0px 4px #000000;
+      }
+      div#links ul li {
+        text-decoration: none;
+        display: inline;
+      }
+      div#links ul li:after {
+        content: " | ";
+        color: #596386;
+      }
+      div#links ul li:last-child:after {
+        content: none;
+      }
+      div#links ul li a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="photo" align="center">
+        <img src="img/main_photo.jpg" alt="kyle_photo" id="photo_img">
+      </div>
+      <div id="main_text">
+        <p>
+          I'm Kyle Johnson, a data scientist and undergraduate at Columbia University.
+          I'm interested in machine learning, natural language processing, data
+          visualization, and quantitative social science broadly.
+        </p>
+        <p>I'm a data science intern at Facebook.</p>
+        <p>I'm a machine learning engineer and research assistant in the
+        <a href="http://www.columbia.edu/cu/psychology/vpvaughns/">
+          Laboratory for Intergroup Relations and the Social Mind.</a>
+        </p>
+        <p>My hobbies include running, reading, and
+        <a href="http://www.columbia.edu/cu/jiujitsu/">
+          Brazilian jiu-jitsu
+        </a>.</p>
+        <p>Feel free to reach out via
+          <a href="mailto:gkjohns@gmail.com">email</a>,
+           I'm always up for ☕️.</p>
+      </div>
+      <div id="links" align="center">
+        <ul>
+          <li><a href="GKyleJohnsonResume.pdf">Resume</a></li>
+          <li><a href="https://www.linkedin.com/in/gkjohns">Linkedin</a></li>
+          <li><a href="https://github.com/GKjohns">Github</a></li>
+          <li><a href="https://www.kaggle.com/gkjohns">Kaggle</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    var fade_time = 300;
+    
+    // Hide everything
+    $("#photo_img").hide();
+    $("#main_text").hide();
+    $("#links").hide();
+
+    // Fade everything in
+    $("#photo_img").fadeIn(fade_time);
+    $("#main_text").delay(fade_time).fadeIn(fade_time);
+    $("#links").delay(2 * fade_time).fadeIn(fade_time);
+  </script>
+</html>

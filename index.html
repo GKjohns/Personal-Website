@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+
+
+
+<!-- TODO:
+  * My assistant data scientist *
+ Create a super minimal, simple little app that does the following:
+    - Presents an svg graph that the user can add points to by clicking
+    - Have them click a button to fit a linear regression through the points
+    - Make the regression line look really beautiful. Have it change slope after
+      a click look really cool.
+    - Plot the regression coefficients if you really feel like it
+-->
+
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -20,12 +34,13 @@
       }
       a {
         color: #596386;
+        text-decoration: none;
       }
       img#photo_img {
         height: 200px;
         width: auto;
         border-radius: 100px;
-        box-shadow: 0px 0px 4px #000000;
+        box-shadow: 0px 0px 5px #333;
       }
       div#links ul li {
         text-decoration: none;
@@ -47,6 +62,12 @@
     <div id="main">
       <div id="photo" align="center">
         <img src="img/main_photo.jpg" alt="kyle_photo" id="photo_img">
+      </div>
+      <div class="show_button" align="center">
+        <button type="button">Click Me</button>
+      </div>
+      <div id="regr_section" align="center">
+        <p>Here's a big SVG graphic</p>
       </div>
       <div id="main_text">
         <p>
@@ -81,12 +102,17 @@
 
     // Hide everything
     $("#photo_img").hide();
+    $("div#regr_section").hide();
     $("#main_text").hide();
     $("#links").hide();
+
+    var svg = d3.select("#regr_section").selectAll("p")
+                .append("p").text("poop");
 
     // Fade everything in
     var showAfterLoad = function(fade_time) {
       $("#photo_img").fadeIn(fade_time);
+      $("#regr_section").fadeIn(fade_time);
       $("#main_text").delay(fade_time).fadeIn(fade_time);
       $("#links").delay(2 * fade_time).fadeIn(fade_time);
     }

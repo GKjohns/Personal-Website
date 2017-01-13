@@ -66,7 +66,7 @@ svg.on('click', function() {
   // add the new datapoint to the dataset
   dataset.push([x, y])
 
-  // create the regression line (2 points)
+  // draw the regression line (2 points)
   if (dataset.length == 2) {
     regrLine = svg.append("line")
                   .attr("x1", function() {
@@ -76,15 +76,24 @@ svg.on('click', function() {
                     return yScale((getRegressionParams(dataset)[0]));
                   })
                   .attr("x2", function() {
-                    return xScale(dataMaxX);
+                    return xScale(0);
                   })
                   .attr("y2", function() {
-                    var params = getRegressionParams(dataset);
-                    return yScale((params[0] + params[1] * dataMaxX));
+                    return yScale((getRegressionParams(dataset)[0]));
                   })
-                  .attr("stroke-width", 5)
-                  .attr("stroke", "#993333")
-                  .attr("stroke-linecap", "round");
+    // animate drawing the line
+    regrLine.transition()
+            .duration(500)
+            .attr("x2", function() {
+              return xScale(dataMaxX);
+            })
+            .attr("y2", function() {
+              var params = getRegressionParams(dataset);
+              return yScale((params[0] + params[1] * dataMaxX));
+            })
+            .attr("stroke-width", 5)
+            .attr("stroke", "#993333")
+            .attr("stroke-linecap", "round");
   }
   // update regression line (more than 2 points)
   if (dataset.length > 2) {

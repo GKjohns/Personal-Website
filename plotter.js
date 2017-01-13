@@ -59,9 +59,15 @@ svg.on('click', function() {
   svg.append("circle")
      .attr("cx", xScale(x))
      .attr("cy", yScale(y))
-     .attr("r", pointRad)
+     .attr("r", 0)
      .attr("fill", "#596386")
-     .attr("stroke", "white");
+     .attr("stroke", "white")
+     .transition()
+     .duration(300)
+     .attr("r", pointRad + 2)
+     .transition()
+     .duration(200)
+     .attr("r", pointRad);
 
   // add the new datapoint to the dataset
   dataset.push([x, y])
@@ -126,8 +132,18 @@ d3.select(".clear_button")
   .on("click", function(e) {
     d3.event.preventDefault();
     d3.selectAll("circle")
+      .transition()
+      .duration(200)
+      .attr("r", pointRad + 2)
+      .transition()
+      .duration(300)
+      .attr("r", 0)
       .remove();
-    regrLine.remove();
+    regrLine.transition()
+            .delay(200)
+            .duration(300)
+            .attr("stroke-width", 0)
+            .remove();
     dataset = [];
   });
 

@@ -92,25 +92,31 @@
   <script>
     // Hide everything
     $("#photo_img").hide();
+    $("#show_button").hide();
     $("div#plotter_section").hide();
     $("#main_text").hide();
     $("#links").hide();
+
+    // Fade everything in seqentially
+    var showAfterLoad = function(fade_time) {
+      $("#photo_img").fadeIn(fade_time);
+      $("#show_button").delay(fade_time).fadeIn(fade_time);
+      $("#main_text").delay(2 * fade_time).fadeIn(fade_time);
+      $("#links").delay(3 * fade_time).fadeIn(fade_time);
+    }
 
     $("#show_button").click(function() {
       $("div#plotter_section").slideToggle(700);
     })
 
-    // Fade everything in
-    var showAfterLoad = function(fade_time) {
-      $("#photo_img").fadeIn(fade_time);
-      $("#main_text").delay(fade_time).fadeIn(fade_time);
-      $("#links").delay(2 * fade_time).fadeIn(fade_time);
-    }
-
     // Do things after the image has loaded (it's big)
     $(window).on("load", function() {
       showAfterLoad(300);
     });
+
+    // ------------
+    // plotting app
+    // ------------
 
     var dataset = [];
 
@@ -246,7 +252,7 @@
       var xBar = sumX / n;
       var yBar = sumY / n;
 
-      // get terms for beta0 and beta1
+      // get terms for beta1
       for (var i = 0; i < data.length; i++) {
         sxx += Math.pow((data[i][0] - xBar), 2)
         sxy += (data[i][0] - xBar) * (data[i][1] - yBar);

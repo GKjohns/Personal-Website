@@ -28,7 +28,8 @@
         border-radius: 100px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       }
-      div#show_button {
+      .show_button {
+        display: block;
         width: 70px;
         height: 40px;
         margin: 0 auto;
@@ -37,14 +38,16 @@
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         border-radius: 2px;
       }
-      div#show_button span {
-      position: relative;
-      top: 10%;
+      a#show_anchor {
+        display: block;
+        position: relative;
+        top: 13%;
+        text-align: center;
       }
-      div#show_button:hover {
+      .show_button:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       }
-      div#show_button:active {
+      .show_button:active {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         transition: all 0.2s cubic-bezier(.25,.8,.25,1);
       }
@@ -69,9 +72,9 @@
       <div id="photo" align="center">
         <img src="img/main_photo.jpg" alt="kyle_photo" id="photo_img">
       </div>
-      <div id="show_button" align="center">
-        <span>📈</span>
-      </div>
+        <div class="show_button" align="center">
+          <a href="#" id="show_anchor"><span>📈</span></a>
+        </div>
       <div id="plotter_section" align="center">
         <div class="chart">
           <p>Plot some points, I'll fit a model for you</p>
@@ -110,9 +113,10 @@
     </div>
   </body>
   <script>
+
     // Hide everything
     $("#photo_img").hide();
-    $("#show_button").hide();
+    $(".show_button").hide();
     $("div#plotter_section").hide();
     $("#main_text").hide();
     $("#links").hide();
@@ -120,12 +124,13 @@
     // Fade everything in seqentially
     var showAfterLoad = function(fade_time) {
       $("#photo_img").fadeIn(fade_time);
-      $("#show_button").delay(fade_time).fadeIn(fade_time);
+      $(".show_button").delay(fade_time).fadeIn(fade_time);
       $("#main_text").delay(2 * fade_time).fadeIn(fade_time);
       $("#links").delay(3 * fade_time).fadeIn(fade_time);
     }
 
-    $("#show_button").click(function() {
+    $("#show_anchor").click(function(e) {
+      e.preventDefault();
       $("div#plotter_section").slideToggle(700);
     })
 

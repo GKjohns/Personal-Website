@@ -129,7 +129,7 @@ d3.select(".clear_button")
   .attr("type", "button")
   .attr("value", "clear")
   .attr("align", "center")
-  .on("click", function(e) {
+  .on("click", function() {
     d3.event.preventDefault();
     d3.selectAll("circle")
       .transition()

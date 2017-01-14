@@ -6,66 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:300,400" rel="stylesheet">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <style media="screen">
-      body {
-        font-family: 'Frank Ruhl Libre', sans-serif;
-      }
-      #main {
-        font-size: 20px;
-        margin: 5% 10%;
-      }
-      div#main_paragraph {
-        margin: 3% 0 0 0;
-        text-shadow: 1px 1px 2px #EEE;
-      }
-      a {
-        color: #596386;
-        text-decoration: none;
-      }
-      img#photo_img {
-        height: 200px;
-        width: auto;
-        border-radius: 100px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      }
-      .show_button {
-        display: block;
-        width: 70px;
-        height: 40px;
-        margin: 0 auto;
-        padding: auto;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        border-radius: 2px;
-      }
-      a#show_anchor {
-        display: block;
-        position: relative;
-        top: 13%;
-        text-align: center;
-      }
-      .show_button:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      }
-      .show_button:active {
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: all 0.2s cubic-bezier(.25,.8,.25,1);
-      }
-      div#links ul li {
-        text-decoration: none;
-        display: inline;
-      }
-      div#links ul li:after {
-        content: " | ";
-        color: #596386;
-      }
-      div#links ul li:last-child:after {
-        content: none;
-      }
-      div#links ul li a {
-        text-decoration: none;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
   </head>
   <body>
     <div id="main">
@@ -139,5 +80,5 @@
       showAfterLoad(300);
     });
   </script>
-  <script src="plotter.js" charset="utf-8"></script>
+  <script src="js/plotter.js" charset="utf-8"></script>
 </html>
